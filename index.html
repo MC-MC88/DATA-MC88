@@ -2401,7 +2401,7 @@ td.cell-edited::after{
       });
 
       td.addEventListener('keydown', (e) => {
-        // Tab navigation between cells is default; we just need Escape to blur
+        // Tab navigation between cells is default
         if (e.key === 'Escape'){
           td.blur();
         }
@@ -2442,7 +2442,7 @@ td.cell-edited::after{
       window.__tableBody__ = $('#tableBody');
       // Rerender
       renderPreview(currentSchema, currentData);
-      // Restore refs (they were detached)
+      // Restore refs 
       setTimeout(() => {
         const th = $('#tableHeader');
         const tb = $('#tableBody');
@@ -3132,11 +3132,10 @@ td.cell-edited::after{
   // Re-grab refs after rebuild
   const realHeader = $('#tableHeader');
   const realBody = $('#tableBody');
-  // Point our references to the actual DOM nodes
+  // Point  references to the actual DOM nodes
   Object.assign(window, {});
 
-  // Use module-scoped variables via closure — refs stay fresh because we use
-  // tableContainer.innerHTML and re-query inside renderPreview
+ 
 
   // Custom render that always uses fresh refs
   function renderPreviewFresh(schema, data){
